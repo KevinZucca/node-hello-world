@@ -14,13 +14,17 @@ const phrases = [
   "Non conta quanto lentamente vai, fintanto che ti fermi",
 ];
 
+let activeIndex = Math.floor(Math.random() * phrases.length);
 // function for randomic phrases
 const randomText = (array) => {
-  const randomIndex = Math.floor(Math.random() * array.length);
+  let randomIndex;
+  do {
+    randomIndex = Math.floor(Math.random() * array.length);
+  } while (randomIndex == activeIndex);
+
   activeIndex = randomIndex;
 
-  const activePhrase = array[randomIndex];
-  return activePhrase;
+  return array[randomIndex];
 };
 // //BONUS
 
